@@ -1,13 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask MVC App</title>
-</head>
-<body>
-    <h1>Welcome to My Flask MVC App</h1>
-    <p>This is a basic Flask application running on Mac.</p>
-</body>
-</html>
+{% include 'partials/header.html' %}
 
+    <h1>Welcome to Raya: Flask MVC App</h1>
+    <p>This is a basic Flask application, that will be using Flask to create a Models-Views-Controllers (MVC) Framework to build WebApps quickly.</p>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-layer-group"></i>
+            </div>
+            <h2 class="feature-title">MVC Architecture</h2>
+            <p class="feature-description">Organized code structure following the Model-View-Controller pattern for better maintainability and scalability.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h2 class="feature-title">Fast Development</h2>
+            <p class="feature-description">Rapid application development with Flask's lightweight and flexible framework.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h2 class="feature-title">Clean Code</h2>
+            <p class="feature-description">Write maintainable and organized code with clear separation of concerns.</p>
+        </div>
+    </div>
+
+    <div class="status-section" style="text-align: center; margin: 40px 0; padding: 20px;">
+        <h3>System Status</h3>
+        <div class="status-indicator" style="margin: 20px 0;">
+            <i class="fas fa-server" style="margin-right: 10px;"></i>
+            Server Status: 
+            {% if server_status %}
+                <span style="color: #28a745;">Online</span>
+            {% else %}
+                <span style="color: #dc3545;">Offline</span>
+            {% endif %}
+        </div>
+    </div>
+
+{% include 'partials/footer.html' %}

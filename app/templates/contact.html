@@ -1,0 +1,52 @@
+{% include 'partials/header.html' %}
+
+    <h1>Contact Us</h1>
+    <h2>Get in Touch</h2>
+
+    <div class="contact-form">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('contact') }}">
+            {{ form.csrf_token }}
+            
+            <div class="form-group">
+                <label for="name">{{ form.name.label }}</label>
+                {{ form.name(class="form-control") }}
+                {% if form.name.errors %}
+                    {% for error in form.name.errors %}
+                        <span class="error">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="phone">{{ form.phone.label }}</label>
+                {{ form.phone(class="form-control", placeholder="+97412345678") }}
+                {% if form.phone.errors %}
+                    {% for error in form.phone.errors %}
+                        <span class="error">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="message">{{ form.message.label }}</label>
+                {{ form.message(class="form-control", rows="5") }}
+                {% if form.message.errors %}
+                    {% for error in form.message.errors %}
+                        <span class="error">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+
+{% include 'partials/footer.html' %} 
