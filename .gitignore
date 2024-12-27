@@ -1,0 +1,12 @@
+# Python-related
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment
+venv/
+
+# Other
+.DS_Store
+.env
+
