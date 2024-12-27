@@ -1,0 +1,27 @@
+{% include 'partials/header.html' %}
+
+<div class="admin-container">
+    <h1>Users</h1>
+    <a href="{{ url_for('admin_routes.models') }}" class="back-link">← Back to Models</a>
+    
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Is Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'partials/footer.html' %} 

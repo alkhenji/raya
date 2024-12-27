@@ -1,0 +1,17 @@
+{% include 'partials/header.html' %}
+
+<div class="admin-container">
+    <h1>Available Models</h1>
+    
+    <div class="models-list">
+        {% for model in models %}
+            <div class="model-item">
+                <a href="{{ model.url }}" class="model-link">
+                    {{ model.name }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'partials/footer.html' %} 

@@ -1,0 +1,31 @@
+{% include 'partials/header.html' %}
+
+<div class="admin-container">
+    <h1>Contact Submissions</h1>
+    <a href="{{ url_for('admin_routes.models') }}" class="back-link">← Back to Models</a>
+    
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Message</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>{{ contact.message[:50] }}...</td>
+                <td>{{ contact.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'partials/footer.html' %} 
